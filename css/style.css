@@ -1,0 +1,622 @@
+/* Variáveis de cores e estilos */
+:root {
+    --preto: #000000;
+    --branco: #ffffff;
+    --cinza-escuro: #282a2b;
+    --cinza-claro: #cccccc;
+    --cinza-medio: #7d7d7d;
+    --cinza-bg: #f8f8f8;
+}
+
+/* Reset e estilos base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--cinza-escuro);
+    background-color: var(--branco);
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5 {
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+section {
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
+}
+section.full-screen {
+    padding: 0;
+}
+
+/* --- ESTILO DO BOTÃO PROFISSIONAL --- */
+.btn {
+    display: inline-block;
+    padding: 14px 32px;
+    border-radius: 30px; 
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-transform: uppercase; 
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+}
+/* --- FIM DO ESTILO BASE --- */
+
+.btn-preto {
+    background-color: var(--preto);
+    color: var(--branco);
+    border: 2px solid var(--preto);
+}
+
+.btn-preto:hover {
+    background-color: transparent;
+    color: var(--preto);
+}
+
+/* --- ESTILO DO BOTÃO BRANCO (DO BANNER) --- */
+.btn-branco {
+    background-color: var(--branco);
+    color: var(--preto);
+    border: 2px solid var(--branco);
+}
+
+.btn-branco:hover {
+    background-color: transparent;
+    color: var(--branco);
+    border-color: var(--branco);
+}
+/* --- FIM DO ESTILO BRANCO --- */
+
+/* --- Header e Navegação --- */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: var(--branco);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 15px 0;
+    transition: padding 0.3s ease, background-color 0.3s ease;
+}
+
+header.scrolled {
+    padding: 10px 0;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.logo img {
+    max-height: 40px;
+    width: auto;
+    transition: all 0.3s ease;
+    position: relative; 
+    z-index: 1002; 
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+}
+
+.nav-menu li {
+    margin-left: 30px;
+    position: relative;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: var(--cinza-escuro);
+    font-weight: 500;
+    transition: color 0.3s ease;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    padding-bottom: 8px;
+}
+
+.nav-menu a:after {
+    content: '';
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--preto);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.nav-menu a:hover {
+    color: var(--preto);
+}
+
+.nav-menu a:hover:after,
+.nav-menu a.active:after {
+    transform: scaleX(1);
+}
+.nav-menu a.active {
+    color: var(--preto);
+    font-weight: 600;
+}
+
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: var(--preto);
+    z-index: 1003; 
+    background: none;
+    border: none;
+    padding: 5px;
+}
+
+/* --- Hero Section - BANNER --- */
+.hero {
+    min-height: 100vh;
+    height: 100dvh; 
+    display: flex;
+    align-items: center;
+    color: var(--branco); 
+    text-align: center; 
+    position: relative;
+    overflow: hidden;
+    padding-top: 70px; 
+}
+
+.hero-background-container {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+}
+
+.hero-bg-item {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 1; 
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)); 
+    z-index: 2;
+}
+
+.hero-content {
+    max-width: 700px;
+    margin: 0 auto; 
+    padding: 0 20px;
+    z-index: 3;
+    position: relative;
+}
+
+.hero h1 {
+    font-size: 2.8rem;
+    margin-bottom: 25px;
+    letter-spacing: -0.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1.2;
+    min-height: 140px; 
+}
+
+.hero-content .btn {
+    margin-top: 30px; 
+}
+
+/* Seção Explicação Leve */
+.explicacao {
+    background-color: var(--branco);
+    padding: 100px 0;
+}
+
+.explicacao-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.explicacao h2 {
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+    color: var(--cinza-escuro);
+}
+
+.explicacao p {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: var(--cinza-medio);
+}
+
+/* --- Seção IA com Vídeo --- */
+.ia-video {
+    height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--branco);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+}
+
+.ia-video-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    z-index: 1;
+}
+
+.ia-video-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+    z-index: 2;
+}
+
+.ia-video-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+    z-index: 3;
+    position: relative;
+}
+
+.ia-video h2 {
+    font-size: 3rem;
+    margin-bottom: 0;
+    color: var(--branco);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out 0.3s, transform 0.8s ease-out 0.3s;
+}
+.ia-video.visible .ia-video-content h2 {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Seção Texto Motivacional */
+.motivacional {
+    background-color: var(--branco);
+    padding: 100px 0;
+}
+
+.motivacional-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.motivacional h2 {
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+    color: var(--cinza-escuro);
+}
+
+.motivacional p {
+    font-size: 1.2rem;
+    line-height: 1.7;
+    color: var(--cinza-medio);
+    margin-bottom: 40px;
+}
+
+/* --- Seção Trabalhos --- */
+.trabalhos {
+    background-color: var(--cinza-bg);
+    padding: 100px 0 100px; 
+}
+
+.trabalhos h2 {
+    text-align: center;
+    margin-bottom: 60px;
+    font-size: 2.5rem;
+    position: relative;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--cinza-escuro);
+}
+
+.trabalhos h2:after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 3px;
+    background-color: var(--preto);
+    margin: 15px auto 0;
+}
+
+/* CSS DA GALERIA DE VÍDEOS PROFISSIONAL */
+.galeria-videos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px; 
+}
+
+.video-container {
+  background-color: var(--branco); 
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  position: relative;
+  padding-top: 150%; 
+}
+
+.video-container video {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  object-fit: cover; 
+  transform: scale(1.05); 
+  transition: transform 0.4s ease; 
+}
+
+.video-container:hover video {
+  transform: scale(1.1); 
+}
+
+/* WhatsApp Flutuante */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 25px;
+    right: 25px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.25);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    animation: pulse 2s infinite;
+}
+
+.whatsapp-float:hover {
+    background-color: #128C7E;
+    transform: scale(1.1);
+    animation: none;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+/* Footer */
+footer {
+    background-color: var(--preto);
+    color: var(--cinza-claro);
+    padding: 80px 0 30px;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-info .logo img {
+    max-height: 45px;
+    margin-bottom: 20px;
+}
+
+.footer-desc {
+    margin-bottom: 25px;
+    line-height: 1.6;
+    color: var(--cinza-medio);
+}
+
+.footer-title {
+    color: var(--branco);
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.footer-links ul { list-style: none; padding: 0; }
+.footer-links li { margin-bottom: 12px; }
+.footer-links a,
+.footer-contact a {
+    color: var(--cinza-medio);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+.footer-links a:hover,
+.footer-contact a:hover { color: var(--branco); }
+
+.footer-contact ul { list-style: none; padding: 0; }
+.footer-contact li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    color: var(--cinza-medio);
+}
+.footer-contact li i {
+    margin-right: 10px;
+    width: 18px;
+    text-align: center;
+    color: var(--branco);
+    flex-shrink: 0;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--branco);
+    font-size: 1rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    text-decoration: none;
+}
+
+.social-links a:hover {
+    background-color: var(--branco);
+    color: var(--preto);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--cinza-medio);
+    font-size: 0.9rem;
+}
+
+/* Animações */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    will-change: opacity, transform;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Responsividade */
+@media (max-width: 992px) { /* Tablet */
+    .hero h1 { font-size: 2.5rem; min-height: 120px; } 
+    .hero-content { margin: 0 auto; }
+    .ia-video h2 { font-size: 2.5rem; }
+    .footer-container { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+    .nav-menu li { margin-left: 20px; }
+}
+
+@media (max-width: 768px) { /* Mobile */
+    .menu-toggle { display: block; }
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 75%;
+        max-width: 300px;
+        height: 100vh;
+        background-color: var(--branco);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: left 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        padding: 40px 0;
+        box-shadow: 5px 0 15px rgba(0, 0, 0, 0.1);
+        visibility: hidden;
+        opacity: 0;
+        z-index: 1001;
+    }
+    .nav-menu.active {
+        left: 0;
+        visibility: visible;
+        opacity: 1;
+    }
+    .nav-menu li { margin: 25px 0; margin-left: 0; }
+    .nav-menu a { font-size: 1.1rem; }
+
+    .hero { padding-top: 60px; min-height: 100vh; height: 100dvh; } 
+    .hero h1 { font-size: 2rem; min-height: 105px; } 
+    .hero-content { margin: 0 auto; }
+
+    section { padding: 60px 0; }
+    section.full-screen { padding: 0; }
+
+    .ia-video { height: 70vh; }
+    .ia-video h2 { font-size: 2rem; }
+    
+    .trabalhos {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+    .galeria-videos {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .footer-container { text-align: center; }
+    .footer-contact ul { padding-left: 0; }
+    .footer-contact li { justify-content: center; }
+    .social-links { justify-content: center; }
+}
+
+@media (max-width: 576px) { /* Small Mobile */
+    .hero h1 { font-size: 1.8rem; min-height: 95px; } 
+    .hero-content { margin: 0 auto; }
+    .ia-video h2 { font-size: 1.8rem; }
+    .btn { padding: 12px 28px; font-size: 0.85rem;}
+    .explicacao h2, .motivacional h2 { font-size: 1.8rem; }
+    .explicacao p, .motivacional p { font-size: 1rem; }
+    .trabalhos h2 { font-size: 2rem; }
+    
+    .galeria-videos {
+        grid-template-columns: 1fr;
+    }
+    
+    .whatsapp-float {
+        width: 50px; height: 50px; bottom: 20px; right: 20px; font-size: 24px;
+    }
+    .footer-title { font-size: 1rem; }
+    .footer-bottom { font-size: 0.8rem; }
+}
