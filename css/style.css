@@ -74,6 +74,12 @@ section.full-screen {
     color: var(--preto);
 }
 
+/* --- ACESSIBILIDADE PARA NAVEGAÇÃO POR TECLADO --- */
+:focus-visible {
+    outline: 2px dashed var(--preto);
+    outline-offset: 4px;
+}
+
 /* --- ESTILO DO BOTÃO BRANCO (DO BANNER) --- */
 .btn-branco {
     background-color: var(--branco);
@@ -139,6 +145,11 @@ header.scrolled {
     font-size: 0.9rem;
     letter-spacing: 0.5px;
     padding-bottom: 8px;
+}
+
+.nav-menu a:focus-visible {
+    outline: 2px dashed var(--preto);
+    outline-offset: 4px;
 }
 
 .nav-menu a:after {
@@ -223,7 +234,7 @@ header.scrolled {
 }
 
 .hero h1 {
-    font-size: 2.8rem;
+    font-size: clamp(2rem, 4vw + 1rem, 2.8rem);
     margin-bottom: 25px;
     letter-spacing: -0.5px;
     font-weight: 700;
@@ -249,7 +260,7 @@ header.scrolled {
 }
 
 .explicacao h2 {
-    font-size: 2.2rem;
+    font-size: clamp(1.8rem, 3vw + 0.5rem, 2.2rem);
     margin-bottom: 30px;
     color: var(--cinza-escuro);
 }
@@ -298,7 +309,7 @@ header.scrolled {
 }
 
 .ia-video h2 {
-    font-size: 3rem;
+    font-size: clamp(2rem, 5vw + 1rem, 3rem);
     margin-bottom: 0;
     color: var(--branco);
     font-weight: 700;
@@ -326,7 +337,7 @@ header.scrolled {
 }
 
 .motivacional h2 {
-    font-size: 2.2rem;
+    font-size: clamp(1.8rem, 3vw + 0.5rem, 2.2rem);
     margin-bottom: 30px;
     color: var(--cinza-escuro);
 }
@@ -347,7 +358,7 @@ header.scrolled {
 .trabalhos h2 {
     text-align: center;
     margin-bottom: 60px;
-    font-size: 2.5rem;
+    font-size: clamp(2rem, 4vw + 0.5rem, 2.5rem);
     position: relative;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -388,6 +399,9 @@ header.scrolled {
   object-fit: cover; 
   transform: scale(1.05); 
   transition: transform 0.4s ease; 
+  
+  /* Bloqueia clique com o botão direito diretamente no vídeo CSS */
+  pointer-events: none;
 }
 
 .video-container:hover video {
@@ -541,9 +555,7 @@ footer {
 
 /* Responsividade */
 @media (max-width: 992px) { /* Tablet */
-    .hero h1 { font-size: 2.5rem; min-height: 120px; } 
     .hero-content { margin: 0 auto; }
-    .ia-video h2 { font-size: 2.5rem; }
     .footer-container { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
     .nav-menu li { margin-left: 20px; }
 }
@@ -577,14 +589,11 @@ footer {
     .nav-menu a { font-size: 1.1rem; }
 
     .hero { padding-top: 60px; min-height: 100vh; height: 100dvh; } 
-    .hero h1 { font-size: 2rem; min-height: 105px; } 
     .hero-content { margin: 0 auto; }
 
     section { padding: 60px 0; }
     section.full-screen { padding: 0; }
-
     .ia-video { height: 70vh; }
-    .ia-video h2 { font-size: 2rem; }
     
     .trabalhos {
         padding-top: 60px;
@@ -602,13 +611,9 @@ footer {
 }
 
 @media (max-width: 576px) { /* Small Mobile */
-    .hero h1 { font-size: 1.8rem; min-height: 95px; } 
     .hero-content { margin: 0 auto; }
-    .ia-video h2 { font-size: 1.8rem; }
     .btn { padding: 12px 28px; font-size: 0.85rem;}
-    .explicacao h2, .motivacional h2 { font-size: 1.8rem; }
     .explicacao p, .motivacional p { font-size: 1rem; }
-    .trabalhos h2 { font-size: 2rem; }
     
     .galeria-videos {
         grid-template-columns: 1fr;

@@ -93,7 +93,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const navLiAnchors = document.querySelectorAll('.nav-menu li a');
 
     if(sections.length > 0 && navLiAnchors.length > 0 && header) {
-        window.addEventListener('scroll', navHighlighter, { passive: true });
+        let isScrolling;
+        window.addEventListener('scroll', () => {
+            window.cancelAnimationFrame(isScrolling);
+            isScrolling = window.requestAnimationFrame(navHighlighter);
+        }, { passive: true });
 
         function navHighlighter() {
             let scrollY = window.pageYOffset;

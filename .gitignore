@@ -1,1 +1,4 @@
-﻿*.mp4
+﻿# Ignorar vídeos muito grandes para não bloquear o push no GitHub
+img/videotela.mp4
+
+.DS_Store
